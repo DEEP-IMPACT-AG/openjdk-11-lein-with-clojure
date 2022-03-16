@@ -9,11 +9,11 @@ RUN apt-get update && \
   apt-get install -y --no-install-recommends sudo jq && \
   rm -rf /var/lib/apt/lists/* \
   rm -rf /root/.m2 && \
-  useradd --create-home -m bmo -G sudo && \
-  echo "bmo:bmo" | chpasswd && \
-  echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/bmo && \
-  chmod 0440 /etc/sudoers.d/bmo && \
+  useradd --create-home -m circleci -G sudo && \
+  echo "circleci:bmo" | chpasswd && \
+  echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/circleci && \
+  chmod 0440 /etc/sudoers.d/circleci && \
   chmod -R 777 /root
 
-USER bmo
+USER circleci
 WORKDIR /root
